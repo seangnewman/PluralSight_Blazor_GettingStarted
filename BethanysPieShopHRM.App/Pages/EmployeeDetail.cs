@@ -20,7 +20,7 @@ namespace BethanysPieShopHRM.App.Pages
 
         [Inject]
         public IEmployeeDataService EmployeeDataService { get; set; }
-        protected async override Task OnInitializedAsync()
+        protected async  Task OnInitializedAsync()
         {
             Employee = await EmployeeDataService.GetEmployeeDetails(int.Parse(EmployeeId));
             MapMarkers = new List<Marker>
@@ -28,6 +28,7 @@ namespace BethanysPieShopHRM.App.Pages
                 new Marker{Description = $"{Employee.FirstName} {Employee.LastName}",  ShowPopup = false, X = Employee.Longitude, Y = Employee.Latitude}
             };
         }
+
 
         
     }
